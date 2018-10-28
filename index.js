@@ -1,5 +1,8 @@
 var express   = require('express'),
-    app       = express();
+    app       = express(),
+    port = process.env.PORT || 3000;
+
+var todosRoutes = require('./routes/todos');
 
 /**
  * Get port from environment and store in Express.
@@ -7,12 +10,13 @@ var express   = require('express'),
 
 // var port = normalizePort(process.env.PORT || '3000');
 // app.set('port', port);
-var port = 3000;
+
 
 app.get('/', function(req, res){
     res.send('hello')
 });
 
+app.use('/api/todos',todosRoutes);
 
 app.listen(port, function(){
   console.log("app listening to " + port);
