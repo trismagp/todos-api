@@ -1,4 +1,3 @@
-
 var mongoose = require('mongoose');
 
 var todoSchema = new mongoose.Schema({
@@ -16,6 +15,6 @@ var todoSchema = new mongoose.Schema({
   }
 });
 
-var Todo = mongooose.model('Todo', todoSchema);
+var Todo = mongoose.model('Todo', todoSchema);
 
 module.exports = Todo;
