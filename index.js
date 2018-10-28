@@ -1,16 +1,12 @@
 var express   = require('express'),
     app       = express(),
-    port = process.env.PORT || 3000;
+    port = process.env.PORT || 3000,
+    bodyParser = require('body-parser');
 
 var todosRoutes = require('./routes/todos');
 
-/**
- * Get port from environment and store in Express.
- */
-
-// var port = normalizePort(process.env.PORT || '3000');
-// app.set('port', port);
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function(req, res){
     res.send('hello')
